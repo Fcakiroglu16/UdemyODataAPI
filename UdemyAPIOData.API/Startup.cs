@@ -62,7 +62,7 @@ namespace UdemyAPIOData.API
             app.UseEndpoints(endpoints =>
             {
                 // www.api.com/odata/products
-                endpoints.Select();
+                endpoints.Select().Expand();
                 endpoints.MapODataRoute("odata", "odata", builder.GetEdmModel());
                 endpoints.MapControllers();
             });
