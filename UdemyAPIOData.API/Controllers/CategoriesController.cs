@@ -9,11 +9,11 @@ using UdemyAPIOData.API.Models;
 
 namespace UdemyAPIOData.API.Controllers
 {
-    public class CatgoriesController : ODataController
+    public class CategoriesController : ODataController
     {
         private readonly AppDbContext _context;
 
-        public CatgoriesController(AppDbContext context)
+        public CategoriesController(AppDbContext context)
         {
             _context = context;
         }
