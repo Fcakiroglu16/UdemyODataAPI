@@ -24,5 +24,11 @@ namespace UdemyAPIOData.API.Controllers
         {
             return Ok(_context.Categories);
         }
+
+        [EnableQuery]
+        public IActionResult Get([FromODataUri]int key)
+        {
+            return Ok(_context.Categories.Where(x => x.Id == key));
+        }
     }
 }
