@@ -19,10 +19,16 @@ namespace UdemyAPIOData.API.Controllers
         }
 
         [EnableQuery]
-        public IActionResult Get()
+        public IActionResult GetProducts()
 
         {
-            return Ok(_context.products);
+            return Ok(_context.products.AsQueryable());
+        }
+
+        [EnableQuery]
+        public IActionResult Get([FromODataUri]int key)
+        {
+            return Ok(_context.products.Where(x => x.Id == key));
         }
     }
 }
