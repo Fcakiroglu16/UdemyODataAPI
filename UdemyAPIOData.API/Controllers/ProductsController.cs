@@ -33,5 +33,14 @@ namespace UdemyAPIOData.API.Controllers
         {
             return Ok(_context.products.Where(x => x.Id == Item));
         }
+
+        [HttpPost]
+        public IActionResult PostProduct([FromBody]Product product)
+        {
+            _context.products.Add(product);
+
+            _context.SaveChanges();
+            return Ok(product);
+        }
     }
 }
