@@ -10,6 +10,7 @@ using UdemyAPIOData.API.Models;
 
 namespace UdemyAPIOData.API.Controllers
 {
+    [ODataRoutePrefix("Products")]
     public class ProductsController : ODataController
     {
         private readonly AppDbContext _context;
@@ -26,7 +27,7 @@ namespace UdemyAPIOData.API.Controllers
             return Ok(_context.products.AsQueryable());
         }
 
-        [ODataRoute("Products({Item})")]
+        [ODataRoute("({Item})")]
         [EnableQuery]
         public IActionResult GetUrun([FromODataUri]int Item)
         {
