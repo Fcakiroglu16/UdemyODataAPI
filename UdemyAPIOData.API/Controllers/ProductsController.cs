@@ -20,7 +20,7 @@ namespace UdemyAPIOData.API.Controllers
             _context = context;
         }
 
-        [EnableQuery]
+        [EnableQuery(PageSize = 2)]
         public IActionResult GetProducts()
 
         {
