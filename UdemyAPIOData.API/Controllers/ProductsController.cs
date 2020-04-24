@@ -10,7 +10,7 @@ using UdemyAPIOData.API.Models;
 
 namespace UdemyAPIOData.API.Controllers
 {
-    [ODataRoutePrefix("Products")]
+    // [ODataRoutePrefix("Products")]
     public class ProductsController : ODataController
     {
         private readonly AppDbContext _context;
@@ -27,15 +27,16 @@ namespace UdemyAPIOData.API.Controllers
             return Ok(_context.products.AsQueryable());
         }
 
-        [ODataRoute("({Item})")]
+        [ODataRoute("Products({Item})")]
         [EnableQuery]
         public IActionResult GetUrun([FromODataUri]int Item)
         {
             return Ok(_context.products.Where(x => x.Id == Item));
         }
 
+        [ODataRoute("Products")]
         [HttpPost]
-        public IActionResult PostProduct([FromBody]Product product)
+        public IActionResult Create([FromBody]Product product)
         {
             _context.products.Add(product);
 
@@ -43,13 +44,28 @@ namespace UdemyAPIOData.API.Controllers
             return Ok(product);
         }
 
+        [ODataRoute("Products({Id})")]
         [HttpPut]
-        public IActionResult PutProduct([FromODataUri]int key, [FromBody] Product product)
+        public IActionResult Update([FromODataUri]int Id, [FromBody] Product product)
 
         {
-            product.Id = key;
+            product.Id = Id;
             _context.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteProduct([FromODataUri]int key)
+        {
+            var product = _context.products.Find(key);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+            _context.products.Remove(product);
             _context.SaveChanges();
             return NoContent();
         }
