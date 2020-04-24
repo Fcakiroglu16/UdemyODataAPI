@@ -47,5 +47,21 @@ namespace UdemyAPIOData.API.Controllers
         {
             return Ok(_context.products.Where(x => x.CategoryId == id));
         }
+
+        [HttpPost]
+        public IActionResult TotalProductPrice([FromODataUri]int key)
+        {
+            var total = _context.products.Where(x => x.CategoryId == key).Sum(x => x.Price);
+
+            return Ok(total);
+        }
+
+        [HttpPost]
+        public IActionResult TotalProductPrice2()
+        {
+            var total = _context.products.Sum(x => x.Price);
+
+            return Ok(total);
+        }
     }
 }

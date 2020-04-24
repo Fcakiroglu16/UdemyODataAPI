@@ -48,6 +48,11 @@ namespace UdemyAPIOData.API
             builder.EntitySet<Category>("Categories");
             builder.EntitySet<Product>("Products");
 
+            // .../odata/categories(1)/totalproductprice
+            builder.EntityType<Category>().Action("TotalProductPrice").Returns<int>();
+
+            builder.EntityType<Category>().Collection.Action("TotalProductPrice2").Returns<int>();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
