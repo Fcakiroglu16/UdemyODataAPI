@@ -42,5 +42,16 @@ namespace UdemyAPIOData.API.Controllers
             _context.SaveChanges();
             return Ok(product);
         }
+
+        [HttpPut]
+        public IActionResult PutProduct([FromODataUri]int key, [FromBody] Product product)
+
+        {
+            product.Id = key;
+            _context.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+            _context.SaveChanges();
+            return NoContent();
+        }
     }
 }
