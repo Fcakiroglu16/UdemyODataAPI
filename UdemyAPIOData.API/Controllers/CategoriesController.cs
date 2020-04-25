@@ -63,5 +63,25 @@ namespace UdemyAPIOData.API.Controllers
 
             return Ok(total);
         }
+
+        [HttpPost]
+        public IActionResult TotalProductPriceWithParametre(ODataActionParameters parameters)
+        {
+            int categoryId = (int)parameters["categoryId"];
+
+            var total = _context.products.Where(x => x.CategoryId == categoryId).Sum(x => x.Price);
+
+            return Ok(total);
+        }
+
+        [HttpPost]
+        public IActionResult Total(ODataActionParameters parameters)
+        {
+            int a = (int)parameters["a"];
+            int b = (int)parameters["b"];
+            int c = (int)parameters["c"];
+
+            return Ok(a + b + c);
+        }
     }
 }

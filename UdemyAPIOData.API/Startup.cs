@@ -53,6 +53,15 @@ namespace UdemyAPIOData.API
 
             builder.EntityType<Category>().Collection.Action("TotalProductPrice2").Returns<int>();
 
+            //odata/categories/totalproductprice
+            builder.EntityType<Category>().Collection.Action("TotalProductPriceWithParametre").Returns<int>().Parameter<int>("categoryId");
+
+            var actionTotal = builder.EntityType<Category>().Collection.Action("Total").Returns<int>();
+
+            actionTotal.Parameter<int>("a");
+            actionTotal.Parameter<int>("b");
+            actionTotal.Parameter<int>("c");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
