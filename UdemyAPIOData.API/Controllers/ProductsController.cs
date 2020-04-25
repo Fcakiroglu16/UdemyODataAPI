@@ -84,5 +84,14 @@ namespace UdemyAPIOData.API.Controllers
         {
             return Ok(a1 * a2 * a3);
         }
+
+        //products(3)
+        [HttpGet]
+        public IActionResult KdvHesapla(int key, [FromODataUri]double kdv)
+        {
+            var product = _context.products.Find(key);
+
+            return Ok(product.Price + (product.Price * kdv));
+        }
     }
 }

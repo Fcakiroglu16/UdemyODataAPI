@@ -74,6 +74,8 @@ namespace UdemyAPIOData.API
             MultiplyFunction.Parameter<int>("a2");
             MultiplyFunction.Parameter<int>("a3");
 
+            builder.EntityType<Product>().Function("KdvHesapla").Returns<double>().Parameter<double>("kdv");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
