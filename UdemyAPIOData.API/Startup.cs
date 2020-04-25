@@ -62,6 +62,8 @@ namespace UdemyAPIOData.API
             actionTotal.Parameter<int>("b");
             actionTotal.Parameter<int>("c");
 
+            builder.EntityType<Product>().Collection.Action("LoginUser").Returns<string>().Parameter<Login>("UserLogin");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -69,5 +69,13 @@ namespace UdemyAPIOData.API.Controllers
             _context.SaveChanges();
             return NoContent();
         }
+
+        [HttpPost]
+        public IActionResult LoginUser(ODataActionParameters parameters)
+        {
+            Login login = parameters["UserLogin"] as Login;
+
+            return Ok(login.Email + "-" + login.Password);
+        }
     }
 }
