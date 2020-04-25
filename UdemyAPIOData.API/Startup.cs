@@ -76,6 +76,8 @@ namespace UdemyAPIOData.API
 
             builder.EntityType<Product>().Function("KdvHesapla").Returns<double>().Parameter<double>("kdv");
 
+            builder.Function("GetKdv").Returns<int>();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
