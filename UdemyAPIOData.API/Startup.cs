@@ -47,7 +47,7 @@ namespace UdemyAPIOData.API
             // [entity set Name]Controller
             builder.EntitySet<Category>("Categories");
             builder.EntitySet<Product>("Products");
-
+            ///Actions///
             // .../odata/categories(1)/totalproductprice
             builder.EntityType<Category>().Action("TotalProductPrice").Returns<int>();
 
@@ -63,6 +63,16 @@ namespace UdemyAPIOData.API
             actionTotal.Parameter<int>("c");
 
             builder.EntityType<Product>().Collection.Action("LoginUser").Returns<string>().Parameter<Login>("UserLogin");
+            ///Actions///
+
+            ///Functions///
+            builder.EntityType<Category>().Collection.Function("CategoryCount").Returns<int>();
+
+            var MultiplyFunction = builder.EntityType<Product>().Collection.Function("MultiplyFunction").Returns<int>();
+
+            MultiplyFunction.Parameter<int>("a1");
+            MultiplyFunction.Parameter<int>("a2");
+            MultiplyFunction.Parameter<int>("a3");
 
             if (env.IsDevelopment())
             {

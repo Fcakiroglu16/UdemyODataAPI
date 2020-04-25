@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.OData;
@@ -82,6 +83,14 @@ namespace UdemyAPIOData.API.Controllers
             int c = (int)parameters["c"];
 
             return Ok(a + b + c);
+        }
+
+        [HttpGet]
+        public IActionResult CategoryCount()
+        {
+            var count = _context.Categories.Count();
+
+            return Ok(count);
         }
     }
 }

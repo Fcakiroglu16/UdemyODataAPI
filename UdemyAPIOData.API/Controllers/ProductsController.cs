@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
 using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -76,6 +77,12 @@ namespace UdemyAPIOData.API.Controllers
             Login login = parameters["UserLogin"] as Login;
 
             return Ok(login.Email + "-" + login.Password);
+        }
+
+        [HttpGet]
+        public IActionResult MultiplyFunction([FromODataUri]int a1, [FromODataUri]int a2, [FromODataUri] int a3)
+        {
+            return Ok(a1 * a2 * a3);
         }
     }
 }
