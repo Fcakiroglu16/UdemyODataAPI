@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyAPIOData.API", "UdemyAPIOData.API\UdemyAPIOData.API.csproj", "{8F4CCD27-2ADE-4610-B6A4-453CEDC2738C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyAPIOData.API", "UdemyAPIOData.API\UdemyAPIOData.API.csproj", "{8F4CCD27-2ADE-4610-B6A4-453CEDC2738C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataConsoleApp", "ODataConsoleApp\ODataConsoleApp.csproj", "{F4400F54-493A-4143-BA7F-75A2EF8A4B65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8F4CCD27-2ADE-4610-B6A4-453CEDC2738C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F4CCD27-2ADE-4610-B6A4-453CEDC2738C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F4CCD27-2ADE-4610-B6A4-453CEDC2738C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4400F54-493A-4143-BA7F-75A2EF8A4B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4400F54-493A-4143-BA7F-75A2EF8A4B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4400F54-493A-4143-BA7F-75A2EF8A4B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4400F54-493A-4143-BA7F-75A2EF8A4B65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
